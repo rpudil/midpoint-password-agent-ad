@@ -149,7 +149,7 @@ bool writeLog(wchar_t *message, bool pwdChange)
     if(SUCCEEDED(SHGetFolderPath(NULL,CSIDL_COMMON_APPDATA|CSIDL_FLAG_CREATE, NULL, 0, systempath)))
 	{
 		wchar_t *totalpath = lstrcat(systempath,changeFileFolder);
-		bool res = CreateDirectory(totalpath, NULL);
+		BOOL res = CreateDirectory(totalpath, NULL);
 		if (res || GetLastError() == ERROR_ALREADY_EXISTS)
 		{
 			if (pwdChange)

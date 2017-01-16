@@ -67,8 +67,8 @@ namespace PasswordFilterProcessor
 
         private static string RunEncryptorFile(bool encrypting, string inputString)
         {
-            string startTag = (encrypting) ? startEncryptionTag : startEncryptionTag;
-            string endTag = (encrypting) ? endEncryptionTag : endEncryptionTag;
+            string startTag = (encrypting) ? startEncryptionTag : startDecryptionTag;
+            string endTag = (encrypting) ? endEncryptionTag : endDecryptionTag;
 
             //Set mode - must have space after e/d to separate from next argument
             string mode = (encrypting) ? "e " : "d ";
@@ -91,7 +91,7 @@ namespace PasswordFilterProcessor
                 bool start = false;
                 foreach (string line in stringLines)
                 {
-                    string trimmedLine = line.TrimEnd(new char[] { '\r', '\n' });
+                    string trimmedLine = line.TrimEnd('\r', '\n');
                     if (start)
                     {
                         if (trimmedLine == endTag)

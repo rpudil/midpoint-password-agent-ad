@@ -144,7 +144,7 @@ namespace PasswordFilterProcessor
                         // Only processed unprocessed items - if already processed then they are stale changes
                         if (!update.IsProcessed)
                         {
-                            string newPassword = Encryptor.Decrypt(update.Password);
+                            string newPassword = Encryptor.Decrypt(update.Password.Trim());
                             modelPortType modelPort = ChangePassword.createModelPort(args);
                             UserType user = ChangePassword.searchUserByName(modelPort, update.UserName);
                             ChangePassword.changeUserPassword(modelPort, user.oid, newPassword);

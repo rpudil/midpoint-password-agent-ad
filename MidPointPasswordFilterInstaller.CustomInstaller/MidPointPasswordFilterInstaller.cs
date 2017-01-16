@@ -32,7 +32,7 @@ namespace MidPointPasswordFilterInstaller.CustomInstaller
         /// <summary>
         /// The relative path to model wsdl in Midpoint. Should be appended to server URL.
         /// </summary>
-        private const string modelWsdlPath = "/midpoint/model/model-1";
+        private const string modelWsdlPath = "/midpoint/model/model-3";
         /// <summary>
         /// The query string for wsdl in Midpoint. Should be appended to default endpoint address URL.
         /// </summary>

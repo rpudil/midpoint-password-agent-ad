@@ -28,8 +28,8 @@ namespace PasswordFilterProcessor
     {
         #region Constants
 
-        private const string NS_COMMON = "http://midpoint.evolveum.com/xml/ns/public/common/common-2a";
-        private const string SEARCHUSER_NS = "http://prism.evolveum.com/xml/ns/public/query-2";
+        private const string NS_COMMON = "http://midpoint.evolveum.com/xml/ns/public/common/common-3";
+        private const string SEARCHUSER_NS = "http://prism.evolveum.com/xml/ns/public/query-3";
         private const string COMMON_PATH = "path";
         private const string COMMON_VALUE = "value";
         private const string CLEAR_VALUE = "clearValue";
@@ -50,6 +50,7 @@ namespace PasswordFilterProcessor
         /// <param name="newPassword">The new password value.</param>
         public static void changeUserPassword(modelPortType modelPort, string oid, string newPassword)
         {
+
             XmlDocument doc = new XmlDocument();
 
             ObjectModificationType userDelta = new ObjectModificationType();
@@ -108,10 +109,8 @@ namespace PasswordFilterProcessor
                 {
                     case 0:
                         return null;
-                        break;
                     case 1:
                         return (UserType)objects[0];
-                        break;
                     default:
                         throw new ArgumentException("Expected to find a single user with username '" + username + "' but found " + objects.Length + " users instead");
                 }
@@ -130,6 +129,7 @@ namespace PasswordFilterProcessor
         /// <returns>The new model port.</returns>
         public static modelPortType createModelPort(String[] args)
         {
+
             string endpointUrl = DEFAULT_ENDPOINT_URL;
 
             if (args.Length > 0)
